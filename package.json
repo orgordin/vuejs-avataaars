@@ -1,0 +1,26 @@
+{
+  "name": "vuejs-avataaars",
+  "private": false,
+  "version": "3.0.0",
+  "description": "Simple generator VueJs app for avataaars",
+  "main": "./dist/avataaars.common.js",
+  "scripts": {
+    "dev": "vue serve src/Avataaars.vue",
+    "build": "rm -rf dist && vue build --target lib --name avataaars src/entry.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "rollup-plugin-commonjs": "^10.1.0"
+  },
+  "files": [
+    "dist/*",
+    "src/*",
+    "public/*",
+    "*.json",
+    "*.js"
+  ],
+  "devDependencies": {
+    "vue-template-compiler": "^2.6.10"
+  }
+}
