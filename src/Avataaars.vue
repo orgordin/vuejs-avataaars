@@ -65,7 +65,7 @@
                 fill='#000000'
                 mask='url(#mask-silhouette)'></path>
             </g>
-              <template v-if="clotheType === 'GraphicShirt'">
+              <template v-if="(!random && clotheType === 'GraphicShirt') || Math.random() >= 0.7">
                 <svg :style="cssVars" v-html="random ? getRandomChoice(GraphicShirtTypes) : GraphicShirtTypes[graphicType]"></svg>
               </template>
               <template v-else>
