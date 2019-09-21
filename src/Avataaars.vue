@@ -66,14 +66,14 @@
                 mask='url(#mask-silhouette)'></path>
             </g>
               <template v-if="(!random && clotheType === 'GraphicShirt') || Math.random() >= 0.7">
-                <svg :style="cssVars" v-html="random ? getRandomChoice(GraphicShirtTypes) : GraphicShirtTypes[graphicType]"></svg>
+                <svg :style="cssVars" v-html="random ? getRandomChoice(GraphicShirtTypes) : GraphicShirtTypes.graphicType"></svg>
               </template>
               <template v-else>
-                <svg v-html="random ? getRandomChoice(clothesType) : clothesType[clotheType]"></svg>
+                <svg v-html="random ? getRandomChoice(clothesType) : clothesType.clotheType"></svg>
               </template>
-            <svg v-html="random ? getRandomChoice(eyeTypes) : eyeTypes[eyeType]"></svg>
-            <svg v-html="random ? getRandomChoice(mouthTypes) : mouthTypes[mouthType]"></svg>
-            <svg v-html="random ? getRandomChoice(eyebrowTypes) : eyeTypes[eyebrowType]"></svg>
+            <svg v-html="random ? getRandomChoice(eyeTypes) : eyeTypes.eyeType"></svg>
+            <svg v-html="random ? getRandomChoice(mouthTypes) : mouthTypes.mouthType"></svg>
+            <svg v-html="random ? getRandomChoice(eyebrowTypes) : eyeTypes.eyebrowType"></svg>
             <svg>
                 <g fill='black' transform='translate(76.000000, 82.000000)'>
                     <g
@@ -88,9 +88,9 @@
                     </g>
                 </g>
             </svg>
-            <svg :style="cssVars" v-html="random ? getRandomChoice(topTypes) : topTypes[topType]"></svg>
-            <svg v-html="random ? getRandomChoice(accessoriesTypes) : accessoriesTypes[accessoriesType]"></svg>
-            <svg :style="cssVars" v-html="random ? getRandomChoice(facialHairTypes) : facialHairTypes[facialHairType]"></svg>
+            <svg :style="cssVars" v-html="random ? getRandomChoice(topTypes) : topTypes.topType"></svg>
+            <svg :style="cssVars" v-html="random ? getRandomChoice(facialHairTypes) : facialHairTypes.facialHairType"></svg>
+            <svg v-html="random ? getRandomChoice(accessoriesTypes) : accessoriesTypes.accessoriesType"></svg>
           </g>
         </g>
       </g>
