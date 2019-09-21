@@ -1,6 +1,10 @@
 # vuejs-avataaars
 Simple generator Vue component for avataaars.
 
+<p align="center">
+<img height="250" width="250" src="https://github.com/orgordin/vuejs-avataaars/blob/master/image.png">
+</p>
+
 ***[avataaars](https://avataaars.com/) designed by [Pablo Stanley](https://twitter.com/pablostanley).***
 
 ## Features:
