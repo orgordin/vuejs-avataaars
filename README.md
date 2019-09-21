@@ -42,7 +42,9 @@ export default {
 
 The following props can be passed to the component:
 
-The default state is random :)
+The default state is random for all props :)
+### Random
+random: true/false
 
 #### accessoriesType
 - Blank

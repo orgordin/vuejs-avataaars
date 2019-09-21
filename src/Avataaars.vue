@@ -94,13 +94,13 @@
 </template>
 
 <script>
-import { mouthTypes } from './mouth'
-import { eyeTypes } from './eyes'
-import { eyebrowTypes } from './eyebrows'
-import { clothesType } from './clothes'
-import { topTypes } from './top'
-import { accessoriesTypes } from './accessories'
-import { facialHairTypes } from './facial-hair'
+import { mouthTypes } from './assetsTypes/mouth'
+import { eyeTypes } from './assetsTypes/eyes'
+import { eyebrowTypes } from './assetsTypes/eyebrows'
+import { clothesType } from './assetsTypes/clothes'
+import { topTypes } from './assetsTypes/top'
+import { accessoriesTypes } from './assetsTypes/accessories'
+import { facialHairTypes } from './assetsTypes/facial-hair'
 
 
 export default {
