@@ -65,10 +65,15 @@
                 fill='#000000'
                 mask='url(#mask-silhouette)'></path>
             </g>
+              <template v-if="clotheType === 'GraphicShirt'">
+                <svg :style="cssVars" v-html="random ? getRandomChoice(GraphicShirtTypes) : GraphicShirtTypes[graphicType]"></svg>
+              </template>
+              <template v-else>
+                <svg v-html="random ? getRandomChoice(clothesType) : clothesType[clotheType]"></svg>
+              </template>
             <svg v-html="random ? getRandomChoice(eyeTypes) : eyeTypes[eyeType]"></svg>
             <svg v-html="random ? getRandomChoice(mouthTypes) : mouthTypes[mouthType]"></svg>
             <svg v-html="random ? getRandomChoice(eyebrowTypes) : eyeTypes[eyebrowType]"></svg>
-            <svg v-html="random ? getRandomChoice(clothesType) : clothesType[clotheType]"></svg>
             <svg>
                 <g fill='black' transform='translate(76.000000, 82.000000)'>
                     <g
@@ -101,6 +106,7 @@ import { clothesType } from './assetsTypes/clothes'
 import { topTypes } from './assetsTypes/top'
 import { accessoriesTypes } from './assetsTypes/accessories'
 import { facialHairTypes } from './assetsTypes/facial-hair'
+import { GraphicShirtTypes } from './assetsTypes/graphic-shirt'
 
 
 export default {
@@ -126,6 +132,7 @@ export default {
         eyebrowType: { type: String, default: '' },
         mouthType: { type: String, default: '' },
         skinColor: { type: String, default: '' },
+        graphicType: { type: String, default: '' },
      },
     methods: {
       getRandomChoice (items) {
@@ -142,7 +149,8 @@ export default {
             eyebrowTypes: eyebrowTypes,
             facialHairTypes: facialHairTypes,
             accessoriesTypes: accessoriesTypes,
-            hatColors: {
+            GraphicShirtTypes: GraphicShirtTypes,
+            hatAndShirtColors: {
                 Black: "#262E33",
                 Blue01: "#65C9FF",
                 Blue02: "#5199E4",
@@ -187,7 +195,8 @@ export default {
           return {
             '--avataaar-hair-color': this.getRandomChoice(this.hairColors),
             '--avataaar-facial-hair-color': this.getRandomChoice(this.hairColors),
-            '--avataaar-hat-color': this.getRandomChoice(this.hatColors)
+            '--avataaar-hat-color': this.getRandomChoice(this.hatAndShirtColors),
+            '--avataaar-shirt-color': this.getRandomChoice(this.hatAndShirtColors),
 
           }
         }
