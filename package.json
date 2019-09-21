@@ -1,12 +1,21 @@
 {
   "name": "vuejs-avataaars",
   "private": false,
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Simple generator VueJs app for avataaars",
   "main": "./dist/avataaars.common.js",
   "scripts": {
     "dev": "vue serve src/Avataaars.vue",
     "build": "rm -rf dist && vue build --target lib --name avataaars src/entry.js"
+  },
+  "homepage": "https://github.com/orgordin/vuejs-avataaars#README.md",
+  "keywords": [
+    "Avataaars",
+    "Avatar"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/orgordin/vuejs-avataaars.git"
   },
   "author": "",
   "license": "MIT",
