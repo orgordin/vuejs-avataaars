@@ -38,10 +38,6 @@ export default {
 </script>
 ```
 
-[See this example on JSFiddle](https://jsfiddle.net/craig_h_411/npq5e21h/)
-
-## Docs
-
 ### Props
 
 The following props can be passed to the component:
