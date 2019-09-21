@@ -5,7 +5,9 @@
 Simple avatar generator Vue component for avataaars.
 
 <p align="center">
-<img height="250" width="250" src="https://github.com/orgordin/vuejs-avataaars/blob/master/image.png">
+  <img height="230" width="230" src="https://github.com/orgordin/vuejs-avataaars/blob/master/image.png">
+  <img height="230" width="230" src="https://github.com/orgordin/vuejs-avataaars/blob/master/image1.png">
+  <img height="230" width="230" src="https://github.com/orgordin/vuejs-avataaars/blob/master/image2.png">
 </p>
 
 ***[avataaars](https://avataaars.com/) designed by [Pablo Stanley](https://twitter.com/pablostanley).***
