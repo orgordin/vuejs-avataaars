@@ -1,5 +1,8 @@
+[![npm](https://img.shields.io/npm/v/vuejs-avataaars.svg?maxAge=2592000)](https://www.npmjs.com/package/vuejs-avataaars)
+[![downloads](https://img.shields.io/npm/dt/vuejs-avataaars.svg?maxAge=2592000)](https://www.npmjs.com/package/vuejs-avataaars)
+
 # vuejs-avataaars
-Simple generator Vue component for avataaars.
+Simple avatar generator Vue component for avataaars.
 
 <p align="center">
 <img height="250" width="250" src="https://github.com/orgordin/vuejs-avataaars/blob/master/image.png">
