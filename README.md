@@ -1,5 +1,6 @@
 [![npm](https://img.shields.io/npm/v/vuejs-avataaars.svg?maxAge=2592000)](https://www.npmjs.com/package/vuejs-avataaars)
 [![downloads](https://img.shields.io/npm/dt/vuejs-avataaars.svg?maxAge=2592000)](https://www.npmjs.com/package/vuejs-avataaars)
+[![PRs welcome](https://img.shields.io/badge/PRs-welcome-ff69b4.svg)](https://github.com/orgordin/vuejs-avataaars/pulls)
 
 # vuejs-avataaars
 Simple avatar generator Vue component for avataaars.
@@ -51,9 +52,11 @@ export default {
 
 The following props can be passed to the component:
 
-The default state is random for all props :)
+The default state is random: true :)
 ### Random
 random: true/false
+
+***random shuold be set to 'false' when using props below.***
 
 #### accessoriesType
 - Blank
