@@ -33,10 +33,10 @@ in your `Vue component`
 ```vue
 <template>
   <div>
-    <!--- all random :) --->
+    <!--- all random :) ---->
     <avataaars></avataaars>
     
-    <!--- with some props --->
+    <!--- with some props ---->
     <avataaars
       :clotheType="'GraphicShirt'"
       :eyebrowType="'Angry'"
