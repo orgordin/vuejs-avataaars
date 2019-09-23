@@ -65,15 +65,15 @@
                 fill='#000000'
                 mask='url(#mask-silhouette)'></path>
             </g>
-              <template v-if="(!random && clotheType === 'GraphicShirt') || Math.random() >= 0.7">
-                <svg :style="cssVars" v-html="random ? getRandomChoice(GraphicShirtTypes) : GraphicShirtTypes.graphicType"></svg>
+              <template v-if="(clotheType !== 'random' && clotheType === 'GraphicShirt') || Math.random() >= 0.7">
+                <svg :style="cssVars" v-html="graphicType === 'random' ? getRandomChoice(GraphicShirtTypes) : GraphicShirtTypes[graphicType]"></svg>
               </template>
               <template v-else>
-                <svg v-html="random ? getRandomChoice(clothesType) : clothesType.clotheType"></svg>
+                <svg v-html="clotheType === 'random' ? getRandomChoice(clothesType) : clothesType[clotheType]"></svg>
               </template>
-            <svg v-html="random ? getRandomChoice(eyeTypes) : eyeTypes.eyeType"></svg>
-            <svg v-html="random ? getRandomChoice(mouthTypes) : mouthTypes.mouthType"></svg>
-            <svg v-html="random ? getRandomChoice(eyebrowTypes) : eyeTypes.eyebrowType"></svg>
+            <svg v-html="eyeType === 'random' ? getRandomChoice(eyeTypes) : eyeTypes[eyeType]"></svg>
+            <svg v-html="mouthType === 'random' ? getRandomChoice(mouthTypes) : mouthTypes[mouthType]"></svg>
+            <svg v-html="eyebrowType === 'random' ? getRandomChoice(eyebrowTypes) : eyebrowTypes[eyebrowType]"></svg>
             <svg>
                 <g fill='black' transform='translate(76.000000, 82.000000)'>
                     <g
@@ -88,9 +88,9 @@
                     </g>
                 </g>
             </svg>
-            <svg :style="cssVars" v-html="random ? getRandomChoice(topTypes) : topTypes.topType"></svg>
-            <svg :style="cssVars" v-html="random ? getRandomChoice(facialHairTypes) : facialHairTypes.facialHairType"></svg>
-            <svg v-html="random ? getRandomChoice(accessoriesTypes) : accessoriesTypes.accessoriesType"></svg>
+            <svg :style="cssVars" v-html="topType === 'random' ? getRandomChoice(topTypes) : topTypes[topType]"></svg>
+            <svg :style="cssVars" v-html="facialHairType === 'random' ? getRandomChoice(facialHairTypes) : facialHairTypes[facialHairType]"></svg>
+            <svg v-html="accessoriesType === 'random' ? getRandomChoice(accessoriesTypes) : accessoriesTypes[accessoriesType]"></svg>
           </g>
         </g>
       </g>
@@ -111,10 +111,6 @@ import { GraphicShirtTypes } from './assetsTypes/graphic-shirt'
 
 export default {
      props: {
-        random: {
-            type: Boolean,
-            default: true
-        },
          isCircle: {
             type: Boolean,
             default: true
@@ -123,22 +119,24 @@ export default {
             type: String,
              default: '#6fb8e0'
         },
-        identifier: { type: String, default: '' },
-        topType: { type: String, default: '' },
-        accessoriesType: { type: String, default: '' },
-        facialHairType: { type: String, default: '' },
-        clotheType: { type: String, default: '' },
-        eyeType: { type: String, default: '' },
-        eyebrowType: { type: String, default: '' },
-        mouthType: { type: String, default: '' },
-        skinColor: { type: String, default: '' },
-        graphicType: { type: String, default: '' },
+        identifier: { type: String, default: 'random' },
+        topType: { type: String, default: 'random' },
+        accessoriesType: { type: String, default: 'random'},
+        facialHairType: { type: String, default: 'random' },
+        clotheType: { type: String, default: 'random' },
+        eyeType: { type: String, default: 'random' },
+        eyebrowType: { type: String, default: 'random' },
+        mouthType: { type: String, default: 'random' },
+        skinColor: { type: String, default: 'random' },
+        graphicType: { type: String, default: 'random' },
+        hairColor: { type: String, default: 'random' },
+        facialHairColor: { type: String, default: 'random' },
      },
     methods: {
-      getRandomChoice (items) {
+        getRandomChoice (items) {
           const itemsLength = Object.entries(items).length
           return Object.entries(items)[Math.floor((Math.random()*(itemsLength)))][1]
-      }
+        }
     },
     data () {
         return {
@@ -193,8 +191,8 @@ export default {
     computed: {
         cssVars () {
           return {
-            '--avataaar-hair-color': this.getRandomChoice(this.hairColors),
-            '--avataaar-facial-hair-color': this.getRandomChoice(this.hairColors),
+            '--avataaar-hair-color': this.hairColor === 'random' ? this.getRandomChoice(this.hairColors) : this.hairColors[this.hairColor],
+            '--avataaar-facial-hair-color': this.facialHairColor === 'random' ? this.getRandomChoice(this.hairColors) : this.hairColors[this.facialHairColor],
             '--avataaar-hat-color': this.getRandomChoice(this.hatAndShirtColors),
             '--avataaar-shirt-color': this.getRandomChoice(this.hatAndShirtColors),
 
