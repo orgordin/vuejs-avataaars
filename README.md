@@ -5,6 +5,9 @@
 # vuejs-avataaars
 Simple avatar generator Vue component for avataaars.
 
+ [Demo]   http://vuejs-avataaars.surge.sh/
+
+
 <p align="center">
   <img height="230" width="230" src="https://github.com/orgordin/vuejs-avataaars/blob/master/image.png">
   <img height="230" width="230" src="https://github.com/orgordin/vuejs-avataaars/blob/master/image1.png">
