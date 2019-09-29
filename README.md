@@ -33,7 +33,18 @@ in your `Vue component`
 ```vue
 <template>
   <div>
+    <!--- all random :) ---->
     <avataaars></avataaars>
+    
+    <!--- with some props ---->
+    <avataaars
+      :clotheType="'GraphicShirt'"
+      :eyebrowType="'Angry'"
+      :eyeType="'Cry'"
+      :mouthType="'Eating'"
+      :facialHairColor="'Blonde'"
+      :graphicType="'Cumbia'">
+    </avataaars>
   </div>
 </template>
 
@@ -52,11 +63,7 @@ export default {
 
 The following props can be passed to the component:
 
-The default state is random: true :)
-### Random
-random: true/false
-
-***random shuold be set to 'false' when using props below.***
+The default state is for all props is random :)
 
 #### accessoriesType
 - Blank
