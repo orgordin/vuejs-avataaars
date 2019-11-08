@@ -30,6 +30,13 @@ Quick install with NPM:
 npm install vuejs-avataaars
 ```
 
+
+Quick install with Yarn:
+
+```
+yarn add vuejs-avataaars
+```
+
 ## Usage
 in your `Vue component`
 
@@ -67,6 +74,14 @@ export default {
 The following props can be passed to the component:
 
 The default state is for all props is random :)
+
+
+#### isCircle
+- true (default)
+- false
+
+#### circleColor
+- color hex (default: #6fb8e0)
 
 #### accessoriesType
 - Blank
