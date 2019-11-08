@@ -24,6 +24,7 @@
         transform='translate(-825.000000, -1100.000000)'
         id='Avataaar/Circle'>
         <g transform='translate(825.000000, 1100.000000)'>
+        <template v-if="isCircle">
             <g
               id='Circle'
               stroke-width='1'
@@ -46,6 +47,7 @@
             <mask id='mask-2' fill='white'>
               <use xlink:href='#path-2' />
             </mask>
+        </template>
           <g id='Mask' />
           <g
             id='Avataaar'
