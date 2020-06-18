@@ -70,21 +70,44 @@ const Hat = `
               <g id='Mask-Hair' />
               <path
                 d='M123.182388,2 L141.817612,2 L141.817612,2 C160.609055,2 176.866947,15.0804442 180.890118,33.4361631 L190,75 L75,75 L84.1098821,33.4361631 L84.1098821,33.4361631 C88.1330533,15.0804442 104.390945,2 123.182388,2 Z'
-                fill='#1F333C'
+                fill='var(--avataaar-hat-color)'
+                style="fill-opacity:0.6"
                 mask='url("#Hat-mask2")'
               />
               <ellipse
                 id='Hipster'
-                fill='#1F333C'
+                fill='var(--avataaar-hat-color)'
                 mask='url("#Hat-mask2")'
                 cx='132'
                 cy='87.5'
                 rx='122'
                 ry='57.5'
+              >
+              </ellipse>
+              <ellipse
+                id='Hipster'
+                style="fill-opacity:0.1"
+                fill='#2e2e2e'
+                mask='url("#Hat-mask2")'
+                cx='132'
+                cy='87.5'
+                rx='122'
+                ry='57.5'
+              >
+              </ellipse>
+              <ellipse
+                id='Very'
+                fill='var(--avataaar-hat-color)'
+                mask='url("#Hat-mask2")'
+                cx='132'
+                cy='82'
+                rx='62'
+                ry='25'
               />
               <ellipse
                 id='Very'
-                fill='#15232A'
+                style="fill-opacity:0.5"
+                fill='#2e2e2e'
                 mask='url("#Hat-mask2")'
                 cx='132'
                 cy='82'
