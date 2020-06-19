@@ -67,12 +67,8 @@
                 fill='#000000'
                 mask='url(#mask-silhouette)'></path>
             </g>
-              <template v-if="(clotheType !== 'random' && clotheType === 'GraphicShirt') || Math.random() >= 0.7">
-                <svg :style="cssVars" v-html="graphicType === 'random' ? getRandomChoice(GraphicShirtTypes) : GraphicShirtTypes[graphicType]"></svg>
-              </template>
-              <template v-else>
-                <svg v-html="clotheType === 'random' ? getRandomChoice(clothesType) : clothesType[clotheType]"></svg>
-              </template>
+            <svg v-html="clotheType === 'random' ? getRandomChoice(clothesType) : clothesType[clotheType]"></svg>
+            <svg v-if="isClotheTypeGraphicShirt || clotheType === 'GraphicShirt'" :style="cssVars" v-html="graphicType === 'random' ? getRandomChoice(GraphicShirtTypes) : GraphicShirtTypes[graphicType]"></svg>
             <svg v-html="eyeType === 'random' ? getRandomChoice(eyeTypes) : eyeTypes[eyeType]"></svg>
             <svg v-html="mouthType === 'random' ? getRandomChoice(mouthTypes) : mouthTypes[mouthType]"></svg>
             <svg v-html="eyebrowType === 'random' ? getRandomChoice(eyebrowTypes) : eyebrowTypes[eyebrowType]"></svg>
@@ -133,11 +129,17 @@ export default {
         graphicType: { type: String, default: 'random' },
         hairColor: { type: String, default: 'random' },
         facialHairColor: { type: String, default: 'random' },
+        topColor: { type: String, default: 'random' },
+        clotheColor: { type: String, default: 'random' },
      },
     methods: {
         getRandomChoice (items) {
-          const itemsLength = Object.entries(items).length
-          return Object.entries(items)[Math.floor((Math.random()*(itemsLength)))][1]
+            const itemsLength = Object.entries(items).length
+            const value = Object.entries(items)[Math.floor((Math.random()*(itemsLength)))][1]
+            if(value.includes('Clothing/Graphic-Shirt')) {
+                this.isClotheTypeGraphicShirt = value.includes('Clothing/Graphic-Shirt')
+            }
+            return value
         }
     },
     data () {
@@ -187,7 +189,8 @@ export default {
                 Brown: "#D08B5B",
                 DarkBrown: "#AE5D29",
                 Black: "#614335"
-            }
+            },
+            isClotheTypeGraphicShirt: false,
         }
     },
     computed: {
@@ -195,8 +198,8 @@ export default {
           return {
             '--avataaar-hair-color': this.hairColor === 'random' ? this.getRandomChoice(this.hairColors) : this.hairColors[this.hairColor],
             '--avataaar-facial-hair-color': this.facialHairColor === 'random' ? this.getRandomChoice(this.hairColors) : this.hairColors[this.facialHairColor],
-            '--avataaar-hat-color': this.getRandomChoice(this.hatAndShirtColors),
-            '--avataaar-shirt-color': this.getRandomChoice(this.hatAndShirtColors),
+              '--avataaar-hat-color': this.topColor === 'random' ? this.getRandomChoice(this.hatAndShirtColors) : this.hatAndShirtColors[this.topColor],
+              '--avataaar-shirt-color': this.clotheColor === 'random' ? this.getRandomChoice(this.hatAndShirtColors) : this.hatAndShirtColors[this.clotheColor],
 
           }
         }
