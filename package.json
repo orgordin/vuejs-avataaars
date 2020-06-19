@@ -1,7 +1,7 @@
 {
   "name": "vuejs-avataaars",
   "private": false,
-  "version": "3.0.9",
+  "version": "4.0.0",
   "description": "Simple generator VueJs app for avataaars",
   "main": "./dist/avataaars.common.js",
   "scripts": {
