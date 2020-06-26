@@ -179,7 +179,7 @@ const Hoodie = `
         </mask>
         <use
           class='CustomColor'
-          fill='#B7C1DB'
+          fill="var(--avataaar-shirt-color)"
           fillRule='evenodd'
           href='#Hoodie-path1'
         />
