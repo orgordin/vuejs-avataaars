@@ -59,7 +59,7 @@
               <mask id='mask-silhouette' fill='white'>
                 <use xlink:href='#path-silhouette'></use>
               </mask>
-              <use :fill="skinColor === 'random' ? getRandomChoice(skinColors) : skinColors[skinColor]" xlink:href='#path-silhouette'></use>
+              <use :fill="skinColors[skinColorValue]" xlink:href='#path-silhouette'></use>
               <path
                 d='M156,79 L156,102 C156,132.927946 130.927946,158 100,158 C69.072054,158 44,132.927946 44,102 L44,79 L44,94 C44,124.927946 69.072054,150 100,150 C130.927946,150 156,124.927946 156,94 L156,79 Z'
                 id='Neck-Shadow'
@@ -67,11 +67,11 @@
                 fill='#000000'
                 mask='url(#mask-silhouette)'></path>
             </g>
-            <svg v-html="clotheType === 'random' ? getRandomChoice(clothesType) : clothesType[clotheType]"></svg>
-            <svg v-if="isClotheTypeGraphicShirt || clotheType === 'GraphicShirt'" :style="cssVars" v-html="graphicType === 'random' ? getRandomChoice(GraphicShirtTypes) : GraphicShirtTypes[graphicType]"></svg>
-            <svg v-html="eyeType === 'random' ? getRandomChoice(eyeTypes) : eyeTypes[eyeType]"></svg>
-            <svg v-html="mouthType === 'random' ? getRandomChoice(mouthTypes) : mouthTypes[mouthType]"></svg>
-            <svg v-html="eyebrowType === 'random' ? getRandomChoice(eyebrowTypes) : eyebrowTypes[eyebrowType]"></svg>
+            <svg :style="cssVars" v-html="clothesType[clotheTypeValue]"></svg>
+            <svg v-if="clotheTypeValue === 'GraphicShirt'" :style="cssVars" v-html="GraphicShirtTypes[graphicTypeValue]"></svg>
+            <svg v-html="eyeTypes[eyeTypeValue]"></svg>
+            <svg v-html="mouthTypes[mouthTypeValue]"></svg>
+            <svg v-html="eyebrowTypes[eyebrowTypeValue]"></svg>
             <svg>
                 <g fill='black' transform='translate(76.000000, 82.000000)'>
                     <g
@@ -86,9 +86,9 @@
                     </g>
                 </g>
             </svg>
-            <svg :style="cssVars" v-html="topType === 'random' ? getRandomChoice(topTypes) : topTypes[topType]"></svg>
-            <svg :style="cssVars" v-html="facialHairType === 'random' ? getRandomChoice(facialHairTypes) : facialHairTypes[facialHairType]"></svg>
-            <svg v-html="accessoriesType === 'random' ? getRandomChoice(accessoriesTypes) : accessoriesTypes[accessoriesType]"></svg>
+            <svg :style="cssVars" v-html="topTypes[topTypeValue]"></svg>
+            <svg :style="cssVars" v-html="facialHairTypes[facialHairTypeValue]"></svg>
+            <svg v-html="accessoriesTypes[accessoriesTypeValue]"></svg>
           </g>
         </g>
       </g>
@@ -117,7 +117,6 @@ export default {
             type: String,
              default: '#6fb8e0'
         },
-        identifier: { type: String, default: 'random' },
         topType: { type: String, default: 'random' },
         accessoriesType: { type: String, default: 'random'},
         facialHairType: { type: String, default: 'random' },
@@ -135,11 +134,7 @@ export default {
     methods: {
         getRandomChoice (items) {
             const itemsLength = Object.entries(items).length
-            const value = Object.entries(items)[Math.floor((Math.random()*(itemsLength)))][1]
-            if(value.includes('Clothing/Graphic-Shirt')) {
-                this.isClotheTypeGraphicShirt = value.includes('Clothing/Graphic-Shirt')
-            }
-            return value
+            return Object.entries(items)[Math.floor((Math.random()*(itemsLength)))][1]
         }
     },
     data () {
@@ -162,7 +157,7 @@ export default {
                 Heather: "#3C4F5C",
                 PastelBlue: "#B1E2FF",
                 PastelGreen: "#A7FFC4",
-                PastelOrange: "#FFDEB5",
+                PastelOrange: "#FFBC69",
                 PastelRed: "#FFAFB9",
                 PastelYellow: "#FFFFB1",
                 Pink: "#FF488E",
@@ -190,7 +185,6 @@ export default {
                 DarkBrown: "#AE5D29",
                 Black: "#614335"
             },
-            isClotheTypeGraphicShirt: false,
         }
     },
     computed: {
@@ -198,10 +192,37 @@ export default {
           return {
             '--avataaar-hair-color': this.hairColor === 'random' ? this.getRandomChoice(this.hairColors) : this.hairColors[this.hairColor],
             '--avataaar-facial-hair-color': this.facialHairColor === 'random' ? this.getRandomChoice(this.hairColors) : this.hairColors[this.facialHairColor],
-              '--avataaar-hat-color': this.topColor === 'random' ? this.getRandomChoice(this.hatAndShirtColors) : this.hatAndShirtColors[this.topColor],
-              '--avataaar-shirt-color': this.clotheColor === 'random' ? this.getRandomChoice(this.hatAndShirtColors) : this.hatAndShirtColors[this.clotheColor],
+            '--avataaar-hat-color': this.topColor === 'random' ? this.getRandomChoice(this.hatAndShirtColors) : this.hatAndShirtColors[this.topColor],
+            '--avataaar-shirt-color': this.clotheColor === 'random' ? this.getRandomChoice(this.hatAndShirtColors) : this.hatAndShirtColors[this.clotheColor],
 
           }
+        },
+        topTypeValue () {
+            return this.topType === 'random' ? this.getRandomChoice(Object.keys(this.topTypes)) : this.topType
+        },
+        accessoriesTypeValue () {
+            return this.accessoriesType === 'random' ? this.getRandomChoice(Object.keys(this.accessoriesTypes)) : this.accessoriesType
+        },
+        facialHairTypeValue () {
+            return this.facialHairType === 'random' ? this.getRandomChoice(Object.keys(this.facialHairTypes)) : this.facialHairType
+        },
+        clotheTypeValue () {
+            return this.clotheType === 'random' ? this.getRandomChoice(Object.keys(this.clothesType)) : this.clotheType
+        },
+        eyeTypeValue () {
+            return this.eyeType === 'random' ? this.getRandomChoice(Object.keys(this.eyeTypes)) : this.eyeType
+        },
+        eyebrowTypeValue () {
+            return this.eyebrowType === 'random' ? this.getRandomChoice(Object.keys(this.eyebrowTypes)) : this.eyebrowType
+        },
+        mouthTypeValue () {
+            return this.mouthType === 'random' ? this.getRandomChoice(Object.keys(this.mouthTypes)) : this.mouthType
+        },
+        skinColorValue () {
+            return this.skinColor === 'random' ? this.getRandomChoice(Object.keys(this.skinColors)) : this.skinColor
+        },
+        graphicTypeValue () {
+            return this.graphicType === 'random' ? this.getRandomChoice(Object.keys(this.GraphicShirtTypes)) : this.graphicType
         }
     }
 }

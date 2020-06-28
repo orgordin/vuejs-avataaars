@@ -134,8 +134,7 @@ const CollarSweater = `
         </mask>
         <use
           class='CustomColor'
-          fill='#E6E6E6'
-          fillRule='evenodd'
+          fill="var(--avataaar-shirt-color)"
           href='#CollarSweater-path1'
         />
         <path
@@ -180,7 +179,7 @@ const Hoodie = `
         </mask>
         <use
           class='CustomColor'
-          fill='#B7C1DB'
+          fill="var(--avataaar-shirt-color)"
           fillRule='evenodd'
           href='#Hoodie-path1'
         />
@@ -214,8 +213,7 @@ const Overall = `
         </mask>
         <use
           class='CustomColor'
-          fill='#B7C1DB'
-          fillRule='evenodd'
+          fill="var(--avataaar-shirt-color)"
           href='#Overall-path1'
         />
         <circle
@@ -251,8 +249,7 @@ const ShirtCrewNeck = `
         </mask>
         <use
           class='CustomColor'
-          fill='#E6E6E6'
-          fillRule='evenodd'
+          fill="var(--avataaar-shirt-color)"
           href='#ShirtCrewNeck-path1'
         />
         <g
@@ -288,8 +285,7 @@ const ShirtScoopNeck = `
         </mask>
         <use
           class='CustomColor'
-          fill='#E6E6E6'
-          fillRule='evenodd'
+          fill="var(--avataaar-shirt-color)"
           href='#ShirtScoopNeck-path1'
         />
       </g>
@@ -307,8 +303,7 @@ const ShirtVNeck = `
         </mask>
         <use
           class='CustomColor'
-          fill='#E6E6E6'
-          fillRule='evenodd'
+          fill="var(--avataaar-shirt-color)"
           href='#ShirtVNeck-path1'
         />
       </g>
