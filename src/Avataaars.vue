@@ -40,7 +40,7 @@
               <g
                 id='Color/Palette/Blue-01'
                 mask='url(#mask-1)'
-                :fill=circleColor>
+                :fill="circleColor">
                 <rect id='🖍Color' x='0' y='0' width='240' height='240'></rect>
               </g>
             </g>
